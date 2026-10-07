@@ -1,3 +1,17 @@
+use cursive::views::TextView;
+
 fn main() {
-    println!("Hello, world!");
+    let mut siv = cursive::default();
+    
+    let cat_text = "Meow!
+    \\
+     \\
+       /\\_/\\
+      ( o.o )
+      =( I )=";
+
+      // Declaring the app layout.
+    siv.add_layer(TextView::new(cat_text));
+    
+    siv.run(); //Starting the event loop.
 }
