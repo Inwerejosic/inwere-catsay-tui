@@ -1,4 +1,4 @@
-use cursive::views::TextView;
+use cursive::views::{Dialog, TextView};
 use cursive::event::Key;
 
 fn main() {
@@ -12,7 +12,11 @@ fn main() {
       =( I )=";
 
       // Declaring the app layout.
-    siv.add_layer(TextView::new(cat_text));
+    siv.add_layer(
+        Dialog::around(TextView::new(cat_text))
+            .button("OK", |s| s.quit())
+    ); 
+    // siv.add_layer(TextView::new(cat_text));
 
     siv.add_global_callback(Key::Esc, |s| s.quit());
     
